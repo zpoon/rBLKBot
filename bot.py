@@ -42,13 +42,14 @@ with conn:
     twitch_string = ''.join(map(str, rows))
     twitch_string = twitch_string.translate(None, '()\'')
 
-twitchAPI = "https://api.twitch.tv/kraken/streams/?channel=" + twitch_string + "&?client_id=" + TwitchAPI_clientID
+twitchAPI = "https://api.twitch.tv/kraken/streams/?channel=" + twitch_string.lower() + "&?client_id=" + TwitchAPI_clientID
 
 r = praw.Reddit(reddit_useragent)
 r.login(reddit_user, reddit_pass)
 
 subreddit = r.get_subreddit(target_subreddit)
 
+payload = ''
 
 response = urllib.urlopen(twitchAPI)
 data = json.loads(response.read().decode('utf8'))
