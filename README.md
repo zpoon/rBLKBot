@@ -1,0 +1,1 @@
+A very crude reddit bot that will grab a list of set twitch channels, access the twitch api, and update a subreddit sidebar with the current people online streaming
